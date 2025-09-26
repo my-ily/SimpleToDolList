@@ -7,8 +7,11 @@ This repo contains a small, beginner-friendly project that demonstrates DOM mani
 ---
 
 ## Live Preview
+<img width="1035" height="725" alt="Screenshot 1447-04-04 at 6 47 24 PM" src="https://github.com/user-attachments/assets/b34e8adc-865c-4452-b6ee-0bb1c0673566" />
 
-You can open `index.html` directly in your browser (double-click the file or use a simple static server).
+
+
+
 
 ---
 
