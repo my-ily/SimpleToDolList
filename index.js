@@ -12,7 +12,7 @@ let totalScore = document.querySelector("#total")
 let progressBar = document.querySelector("#progressBar");
 
 
-
+// Update the progress bar based on the score and total tasks
 function UpdateProgressBar(){
      let total = list.length + score; 
   let percent = total === 0 ? 0 : Math.round((score / total) * 100);
@@ -35,11 +35,7 @@ function UpdateProgressBar(){
 
 }
 
-input.addEventListener("keypress", function(e) {
-  if (e.key === "Enter") {
-    AddTask();
-  }
-});
+//add task
 
 function AddTask(){
 Name =input.value;
@@ -56,8 +52,6 @@ list.push({
     Name , duedate,completed:"false" 
 })
 }
-
-
     input.value = '';
     duedateInput.value = '';
  AddButton.innerText="Add"
@@ -66,6 +60,7 @@ console.log(list);
 
 }
 
+//render to page
 function Render(){
 let html =''
 list.forEach(function( listObj,index){
@@ -100,13 +95,14 @@ totalScore.innerHTML=`
 
 UpdateProgressBar()
 }
+// delete task
 function Delete(index){
 
 list.splice(index,1)
 Render()
 }
 
-
+//edit task
 function Edit(index){  
 editingIndex = index; // Remember which task to edit
     input.value = list[index].Name;
@@ -115,13 +111,14 @@ editingIndex = index; // Remember which task to edit
 
 
   }
+
+
+
+// complete task
 function toggleComplete(index) {
 const task = list.splice(index, 1)[0];
-//   const task = list[index]
   task.completed = "true";
 let ul =document.querySelector("#doneTasks")
-
-// doneList.innerHTML +=`<h1>${task}</h1>`
 const li = document.createElement("li");
 li.className="list-group-item d-flex justify-content-between align-items-center m-2"
 li.innerHTML=`
@@ -132,7 +129,6 @@ li.innerHTML=`
   </div>
  </div>
 `
-
 ul.appendChild(li)
 score++
 Render()
@@ -140,32 +136,12 @@ console.log(task);
 
 }
 
-
-
-
-
-
-
-  // أضف المهمة إلى قائمة المنجزة
-//   const doneTasksList = document.querySelector("#doneTasks");
-//   const li = document.createElement("li");
-//   li.className = "list-group-item";
-//   li.innerHTML = `
-//     <div class="d-flex justify-content-between align-items-center">
-//       <div>
-//         <span style="text-decoration: line-through;">${task.Name}</span>
-//         <span class="ms-4 text-danger">${task.duedate}</span>
-//       </div>
-//     </div>
-//   `;
-//   doneTasksList.appendChild(li);
-
-//   Render(); 
-
-
-
-  
-
+// to keypress in Enter key
+input.addEventListener("keypress", function(e) {
+  if (e.key === "Enter") {
+    AddTask();
+  }
+});
 
 //  * add
 //  * delete
@@ -173,3 +149,4 @@ console.log(task);
 //  * render
 //  * score/total
 //  * connect to prpgrss bar */
+
